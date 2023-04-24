@@ -9,6 +9,16 @@ public class Radio {
     private int minVolume;
     private int maxVolume;
 
+    private int quantityOfStations;
+
+    public Radio(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
+    }
+
+
+
+    public Radio() {
+    }
 
     public int stationNumber(int stationNumber) {
         if (stationNumber > minStationNumber && stationNumber <= maxStationNumber) {
@@ -58,10 +68,17 @@ public class Radio {
         return volumeDown;
     }
 
+    public int getQuantityOfStations() {
+        return quantityOfStations;
+    }
 
-    /*public int getCurrentStationNumber() {
+    public void setQuantityOfStations(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
+    }
+
+    public int getCurrentStationNumber() {
         return currentStationNumber;
-    }*/
+    }
 
     public void setCurrentStationNumber(int currentStationNumber) {
         this.currentStationNumber = currentStationNumber;
