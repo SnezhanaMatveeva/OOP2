@@ -22,11 +22,12 @@ public class Radio {
         int numberNext = currentStationNumber;
         if (numberNext == maxStationNumber) {
             numberNext = minStationNumber;
-        } else numberNext = numberNext + 1;
+        } else {
+            numberNext = numberNext + 1;
+        }
         System.out.println("next" + numberNext);
 
         return numberNext;
-
     }
 
 
@@ -34,7 +35,9 @@ public class Radio {
         int numberPrev = currentStationNumber;
         if (numberPrev == minStationNumber) {
             numberPrev = maxStationNumber;
-        } else numberPrev = numberPrev - 1;
+        } else {
+            numberPrev = numberPrev - 1;
+        }
         System.out.println("prev" + numberPrev);
         return numberPrev;
     }
