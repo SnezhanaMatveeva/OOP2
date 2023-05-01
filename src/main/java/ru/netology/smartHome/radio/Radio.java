@@ -18,7 +18,7 @@ public class Radio {
     }
 
 
-    public int next() {
+    /*public int next() {
         int numberNext = currentStationNumber;
         if (numberNext == maxStationNumber) {
             numberNext = minStationNumber;
@@ -28,10 +28,20 @@ public class Radio {
         System.out.println("next" + numberNext);
 
         return numberNext;
+    }*/
+
+    public int next() {
+        if (currentStationNumber == maxStationNumber) {
+            currentStationNumber = minStationNumber;
+        } else {
+            currentStationNumber = currentStationNumber + 1;
+        }
+        System.out.println("next station is " + currentStationNumber);
+        return currentStationNumber;
     }
 
 
-    public int prev() {
+   /* public int prev() {
         int numberPrev = currentStationNumber;
         if (numberPrev == minStationNumber) {
             numberPrev = maxStationNumber;
@@ -40,31 +50,39 @@ public class Radio {
         }
         System.out.println("prev" + numberPrev);
         return numberPrev;
+    }*/
+
+    public int prev() {
+        if (currentStationNumber == minStationNumber) {
+            currentStationNumber = maxStationNumber;
+        } else {
+            currentStationNumber = currentStationNumber - 1;
+        }
+        System.out.println("prev station is " + currentStationNumber);
+        return currentStationNumber;
     }
 
 
     public int volumeUp() {
-        int volumeUp = currentVolume;
-        if (volumeUp < maxVolume) {
-            volumeUp = volumeUp + 1;
-            System.out.println("volume up" + volumeUp);
+        if (currentVolume < maxVolume) {
+            currentVolume = currentVolume + 1;
+            System.out.println("volume up " + currentVolume);
         }
-        return volumeUp;
+        return currentVolume;
     }
 
     public int volumeDown() {
-        int volumeDown = currentVolume;
-        if (volumeDown > minVolume) {
-            volumeDown = volumeDown - 1;
-            System.out.println("volume down" + volumeDown);
+        if (currentVolume > minVolume) {
+            currentVolume = currentVolume - 1;
+            System.out.println("volume down " + currentVolume);
         }
-        return volumeDown;
+        return currentVolume;
     }
 
 
-    /*public int getCurrentStationNumber() {
+    public int getCurrentStationNumber() {
         return currentStationNumber;
-    }*/
+    }
 
     public void setCurrentStationNumber(int currentStationNumber) {
         this.currentStationNumber = currentStationNumber;
@@ -86,9 +104,9 @@ public class Radio {
         this.maxStationNumber = maxStationNumber;
     }
 
-    /*public int getCurrentVolume() {
+    public int getCurrentVolume() {
         return currentVolume;
-    }*/
+    }
 
     public void setCurrentVolume(int currentVolume) {
         this.currentVolume = currentVolume;
