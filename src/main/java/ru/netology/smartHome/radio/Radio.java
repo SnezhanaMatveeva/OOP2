@@ -9,6 +9,14 @@ public class Radio {
     private int minVolume;
     private int maxVolume;
 
+    private int quantityOfStations;
+
+    public Radio(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
+    }
+
+    public Radio() {
+    }
 
     public int stationNumber(int stationNumber) {
         if (stationNumber > minStationNumber && stationNumber <= maxStationNumber) {
@@ -16,19 +24,6 @@ public class Radio {
         }
         return currentStationNumber;
     }
-
-
-    /*public int next() {
-        int numberNext = currentStationNumber;
-        if (numberNext == maxStationNumber) {
-            numberNext = minStationNumber;
-        } else {
-            numberNext = numberNext + 1;
-        }
-        System.out.println("next" + numberNext);
-
-        return numberNext;
-    }*/
 
     public int next() {
         if (currentStationNumber == maxStationNumber) {
@@ -39,18 +34,6 @@ public class Radio {
         System.out.println("next station is " + currentStationNumber);
         return currentStationNumber;
     }
-
-
-   /* public int prev() {
-        int numberPrev = currentStationNumber;
-        if (numberPrev == minStationNumber) {
-            numberPrev = maxStationNumber;
-        } else {
-            numberPrev = numberPrev - 1;
-        }
-        System.out.println("prev" + numberPrev);
-        return numberPrev;
-    }*/
 
     public int prev() {
         if (currentStationNumber == minStationNumber) {
@@ -126,5 +109,13 @@ public class Radio {
 
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
+    }
+
+    public int getQuantityOfStations() {
+        return quantityOfStations;
+    }
+
+    public void setQuantityOfStations(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
     }
 }

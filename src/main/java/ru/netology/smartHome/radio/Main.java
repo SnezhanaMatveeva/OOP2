@@ -12,15 +12,16 @@ public class Main {
         radio.setMaxStationNumber(9);
         radio.stationNumber(7);
 
+        Radio radio1 = new Radio(5);
         System.out.println("Current station is : " + radio.getCurrentStationNumber());
 
 
 
-        //radio.next();
+        radio.next();
         radio.prev();
       //  radio.next();
         System.out.println("current volume is " + radio.getCurrentVolume());
-        //radio.volumeUp();
+        radio.volumeUp();
         radio.volumeDown();
     }
 
