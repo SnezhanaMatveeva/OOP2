@@ -9,26 +9,17 @@ public class Radio {
     private int minVolume;
     private int maxVolume;
 
+    private int quantityOfStations;
 
-    public int stationNumber(int stationNumber) {
-        if (stationNumber > minStationNumber && stationNumber <= maxStationNumber) {
-            currentStationNumber = stationNumber;
-        }
-        return currentStationNumber;
+    public Radio(int quantityOfStations) {
+        maxStationNumber = quantityOfStations - 1;
+        this.quantityOfStations = quantityOfStations;
     }
 
-
-    /*public int next() {
-        int numberNext = currentStationNumber;
-        if (numberNext == maxStationNumber) {
-            numberNext = minStationNumber;
-        } else {
-            numberNext = numberNext + 1;
-        }
-        System.out.println("next" + numberNext);
-
-        return numberNext;
-    }*/
+    public Radio() {
+        quantityOfStations = 10;
+        maxStationNumber = quantityOfStations - 1;
+    }
 
     public int next() {
         if (currentStationNumber == maxStationNumber) {
@@ -36,21 +27,8 @@ public class Radio {
         } else {
             currentStationNumber = currentStationNumber + 1;
         }
-        System.out.println("next station is " + currentStationNumber);
         return currentStationNumber;
     }
-
-
-   /* public int prev() {
-        int numberPrev = currentStationNumber;
-        if (numberPrev == minStationNumber) {
-            numberPrev = maxStationNumber;
-        } else {
-            numberPrev = numberPrev - 1;
-        }
-        System.out.println("prev" + numberPrev);
-        return numberPrev;
-    }*/
 
     public int prev() {
         if (currentStationNumber == minStationNumber) {
@@ -58,7 +36,6 @@ public class Radio {
         } else {
             currentStationNumber = currentStationNumber - 1;
         }
-        System.out.println("prev station is " + currentStationNumber);
         return currentStationNumber;
     }
 
@@ -66,7 +43,6 @@ public class Radio {
     public int volumeUp() {
         if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
-            System.out.println("volume up " + currentVolume);
         }
         return currentVolume;
     }
@@ -74,7 +50,6 @@ public class Radio {
     public int volumeDown() {
         if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
-            System.out.println("volume down " + currentVolume);
         }
         return currentVolume;
     }
@@ -85,10 +60,16 @@ public class Radio {
     }
 
     public void setCurrentStationNumber(int currentStationNumber) {
+        if (currentStationNumber < minStationNumber) {
+            return;
+        }
+        if ((currentStationNumber > maxStationNumber)) {
+            return;
+        }
         this.currentStationNumber = currentStationNumber;
     }
 
-   /* public int getMinStationNumber() {
+    /*public int getMinStationNumber() {
         return minStationNumber;
     }*/
 
@@ -109,6 +90,12 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < minVolume) {
+            return;
+        }
+        if (currentVolume > maxVolume) {
+            return;
+        }
         this.currentVolume = currentVolume;
     }
 
@@ -126,5 +113,13 @@ public class Radio {
 
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
+    }
+
+    public int getQuantityOfStations() {
+        return quantityOfStations;
+    }
+
+    public void setQuantityOfStations(int quantityOfStations) {
+        this.quantityOfStations = quantityOfStations;
     }
 }
